@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from '../data.service';
 import {  FormControl, FormGroup } from '@angular/forms';
-import { AngularFirestore} from '@angular/fire/firestore'
+import { AngularFirestore} from '@angular/fire/firestore';
 import { School } from './../model/School';
 
 
