@@ -1,0 +1,18 @@
+<h1>School that are registered</h1>
+
+
+<br>
+<div  class="uk-container-center">
+  <ol *ngFor='let schools of school'>
+    <li>Names of Registered Nanny School
+      <ul>
+        <li>name of School: {{schools.nameOfSchool}}</li>
+        <li>Provice: {{schools.province}}</li>
+        <li>Email: {{schools.email}}</li>
+        <li>phone number: {{schools.phoneNumber}} </li>
+        <li>rating: coming soon</li>
+      </ul>
+    </ol>
+    <button  (click)="navigateRegister()" class="btn-stack-overflow">School Apply and We can help your school as well</button>
+</div>
+
