@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseConfig :{
+  firebaseConfig : {
     apiKey: 'AIzaSyDmMdkNPsD-hEV9HRdexuhqL6gB4XkzhY8',
     authDomain: 'nannysite-478d4.firebaseapp.com',
     databaseURL: 'https://nannysite-478d4.firebaseio.com',

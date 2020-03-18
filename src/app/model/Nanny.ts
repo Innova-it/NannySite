@@ -1,5 +1,5 @@
 export class Nanny {
-
+  id: string;
   name: string;
   surname: string;
   province: string;

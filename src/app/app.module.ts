@@ -9,9 +9,10 @@ import { AccountComponent } from './account/account.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
-import { DataService } from './data.service';
+import { SchoolService } from './school.service';
 import {AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -25,14 +26,15 @@ import { environment } from 'src/environments/environment';
     RegisterComponent
   ],
   imports: [
-BrowserModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
-  providers: [DataService],
+  providers: [SchoolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
