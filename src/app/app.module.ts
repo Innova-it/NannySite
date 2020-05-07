@@ -14,6 +14,7 @@ import {AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
+import { SchoolDetailsComponent } from './schools/school-details/school-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { environment } from 'src/environments/environment';
     SchoolsComponent,
     AccountComponent,
     PageNotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    SchoolDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
-  providers: [SchoolService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

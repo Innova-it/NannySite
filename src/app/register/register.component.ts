@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
     }
 
     save(school) {
-      this.schoolSerivce.createSchool(this.school);
+      this.schoolSerivce.createSchool(school);
       this.school = new School();
     }
 

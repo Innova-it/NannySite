@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { SchoolService } from '../school.service';
-import { School } from '../model/School';
 import {map} from 'rxjs/operators';
 
 @Component({
@@ -11,25 +10,26 @@ import {map} from 'rxjs/operators';
 })
 export class SchoolsComponent implements OnInit {
 
-  schoolsView: any;
+  schools: any;
 
   constructor(public router: Router, private schoolService: SchoolService) { }
 
   ngOnInit() {
-   this.getSchoolList();
+   this.getSchoolsList();
   }
 
-  getSchoolList() {
+  getSchoolsList() {
     this.schoolService.getSchoolList().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
-          ({ key: c.payload.key, ...c.payload.val()})
+          ({ key: c.payload.key, ...c.payload.val() })
         )
-    )
-    ).subscribe(schools => {
-      this.schoolsView = this.schoolsView;
+      )
+    ).subscribe(school => {
+      this.schools = school;
     });
   }
+
 
 
   navigateRegister() {

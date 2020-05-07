@@ -4,5 +4,6 @@ export class School {
   province: string;
   phoneNumber: string;
   email: string;
+  active: boolean;
 
 }

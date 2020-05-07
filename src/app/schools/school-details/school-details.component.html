@@ -1,0 +1,19 @@
+
+<br>
+<div  class="uk-container-center">
+  <div *ngIf="school">
+      <ul>
+        <li><label>name of School:</label> {{school.nameOfSchool}}</li>
+        <li><label>Provice:</label> {{school.province}}</li>
+        <li><label>Email:</label> {{school.email}}</li>
+        <li><label>phone number:</label> {{school.phoneNumber}} </li>
+        <li><label>rating: coming soon</label></li>
+      </ul>
+      <span class="uk-button-primary" *ngIf='school.active' (click)='updateActive(false)'>Inactive</span>
+      <span class="uk-button" *ngIf='!school.active' (click)='updateActive(true)'>Active</span>
+
+      <span class="button is-small btn-danger" (click)='deleteSchool()'>Delete</span>
+
+    </div>
+</div>
+
