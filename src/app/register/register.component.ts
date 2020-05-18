@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import {  FormControl, FormGroup } from '@angular/forms';
+import { FormGroup , Validators, FormBuilder} from '@angular/forms';
 import { School } from './../model/School';
 import { SchoolService } from './../school.service';
 
@@ -19,24 +19,28 @@ export class RegisterComponent implements OnInit {
 
 
 
-  schoolForm = new FormGroup({
-    id :new FormControl(''),
-    nameOFschool : new FormControl(''),
-    province : new FormControl(''),
-    email : new FormControl(''),
-    phoneNumber : new FormControl('')
-  });
+  schoolForm : FormGroup;
 
 
 
-  constructor(public router: Router, private schoolSerivce: SchoolService) { }
+  constructor(public router: Router, private schoolBuilderForm: FormBuilder, private schoolSerivce: SchoolService) {
+    this.createForm();
+  }
+  createForm(){
+    this.schoolForm = this.schoolBuilderForm.group({
+      nameOFschool:['',Validators.required],
+      province:['',Validators.required],
+      email:['',Validators.email],
+      phoneNumber:['',Validators.maxLength]
+
+    });
+  }
 
   ngOnInit() {
 
   }
 
   onsubmit(){
-    this.school.id = this.schoolForm.get('id').value;
     this.school.nameOfSchool = this.schoolForm.get('nameOFschool').value;
     this.school.province = this.schoolForm.get('province').value;
     this.school.email = this.schoolForm.get('email').value;
@@ -66,4 +70,3 @@ export class RegisterComponent implements OnInit {
 
 
   }
-

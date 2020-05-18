@@ -1,28 +1,30 @@
 
 <form autocomplete="off" [formGroup]="schoolForm" >
-    <fieldset>
         <legend>School Application</legend>
         <label for='school'>Name of school</label>
-        <div class="form-group">
-         <input type="hidden" name="id"  formControlName="id" formControlName='id' >
+      <div class="form-group" >
           <div class="uk-form-row">
-            <input type="text"   formControlName='nameOFschool'  class="form-control" id="nameOfSchool"  name="nameOfSchool" placeholder="">
+              <input type="text"class="form-control"  formControlName="nameOFschool"  name="nameOfSchool" placeholder="">
+            </div>
           </div>
-        </div>
         <label for='province'>Province</label>
-        <div class="uk-form-row">
-          <input type="text" placeholder=""  formControlName="province" class="form-control" id="province"  name="province">
-        </div>
-        <label for='email'>Email</label>
-        <div class="uk-form-row">
-          <input type="text" placeholder="" formControlName="email"  id='email' class="form-control" name="email">
-        </div>
-        <label for='phone'>Phone Number</label>
+    <div class="form-group">
           <div class="uk-form-row">
-            <input type="mobile" placeholder="" formControlName="phoneNumber" class="form-control"  name='phoneNumber'>
+            <input type="text" placeholder=""  formControlName="province" class="form-control" id="province"  name="province">
           </div>
-        <br>
+      </div>
+        <label for='email'>Email</label>
+     <div class="form-group">
+        <div class="uk-form-row">
+          <input placeholder="" formControlName="email"  type="email" class="form-control" name="email">
+        </div>
+      </div>
+        <label for='phone'>Phone Number</label>
+        <div class="form-group">
+          <div class="uk-form-row">
+            <input type="tel" placeholder="" formControlName="phoneNumber" class="form-control"  name='phoneNumber'>
+          </div>
+        </div>
 
-    </fieldset>
-    <button type="button" class="btn-round" (click)="onsubmit()">Submit</button>
+    <button type="button" (click)="onsubmit()" [disabled]="schoolForm.pristine || schoolForm.invalid" class="btn btn-success">Submit</button>
 </form>
