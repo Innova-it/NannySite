@@ -12,7 +12,7 @@
       <span class="uk-button-primary" *ngIf='school.active' (click)='updateActive(false)'>Inactive</span>
       <span class="uk-button" *ngIf='!school.active' (click)='updateActive(true)'>Active</span>
 
-      <span class="button is-small btn-danger" (click)='deleteSchool()'>Delete</span>
+      <span class="uk-button" (click)='deleteSchool(school.province)'>Delete</span>
 
     </div>
 </div>

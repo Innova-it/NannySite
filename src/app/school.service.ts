@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { School } from './model/School';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList ,AngularFireObject} from '@angular/fire/database';
+
 
 
 @Injectable({
@@ -9,34 +10,39 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 export class SchoolService {
 
-private dbPath = '/School';
+  private dbPath = '/School';
 
-schoolRef: AngularFireList<School> = null;
+  schoolRef: AngularFireList<School> = null;
 
-constructor(private db: AngularFireDatabase) {
-  this.schoolRef = db.list(this.dbPath);
-}
+  schoolRefs: AngularFireObject<School> = null;
 
-createSchool(school: School): void {
-this.schoolRef.push(school);
-}
 
-updateSchool(key: string, value: any): Promise<void> {
-  return this.schoolRef.remove(key);
 
-}
+  constructor(private db: AngularFireDatabase) {
+    this.schoolRef = db.list(this.dbPath);
+  }
 
-deleteSchool(key: string): Promise<void> {
-  return this.schoolRef.remove(key);
-}
+  createSchool(school: School): void {
+    this.schoolRef.push(school);
+  }
 
-getSchoolList(): AngularFireList<School> {
-  return this.schoolRef;
-}
+  // dont use it yet need to change all previous value
+  updateSchool(key: string, school: School): Promise<void> {
+    return this.schoolRef.update(key, school);
 
-deleteAll(): Promise<void> {
-  return this.schoolRef.remove();
-}
+  }
+
+  deleteSchool(key: string): Promise<void> {
+    return this.schoolRef.remove(key);
+  }
+
+  getSchoolList(): AngularFireList<School> {
+    return this.schoolRef;
+  }
+
+  deleteAll(): Promise<void> {
+    return this.schoolRef.remove();
+  }
 
 
 

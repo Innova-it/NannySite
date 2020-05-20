@@ -17,15 +17,16 @@ export class SchoolDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+//need to fix the update method to change certain data
   updateActive(isActive: boolean) {
     this.schoolService
-      .updateSchool(this.school.id, { active: isActive })
+      .updateSchool(this.school.nameOfSchool, this.school)
       .catch(err => console.log(err));
   }
 
   deleteSchool() {
     this.schoolService
-      .deleteSchool(this.school.id)
+      .deleteSchool(this.school.$Key)
       .catch(err => console.log(err));
   }
 

@@ -22,7 +22,7 @@ export class SchoolsComponent implements OnInit {
     this.schoolService.getSchoolList().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
-          ({ key: c.payload.key, ...c.payload.val() })
+          ({ $Key: c.payload.key, ...c.payload.val() })
         )
       )
     ).subscribe(school => {

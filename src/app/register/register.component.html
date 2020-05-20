@@ -1,30 +1,50 @@
 
 <form autocomplete="off" [formGroup]="schoolForm" >
-        <legend>School Application</legend>
-        <label for='school'>Name of school</label>
-      <div class="form-group" >
-          <div class="uk-form-row">
-              <input type="text"class="form-control"  formControlName="nameOFschool"  name="nameOfSchool" placeholder="">
-            </div>
-          </div>
-        <label for='province'>Province</label>
-    <div class="form-group">
-          <div class="uk-form-row">
-            <input type="text" placeholder=""  formControlName="province" class="form-control" id="province"  name="province">
-          </div>
-      </div>
-        <label for='email'>Email</label>
-     <div class="form-group">
-        <div class="uk-form-row">
-          <input placeholder="" formControlName="email"  type="email" class="form-control" name="email">
+  <legend>School Application</legend>
+  <label for='school'>Name of school</label>
+  <input type="hidden" name="$key"  formControlName="$key" >
+<div class="form-group" >
+    <div class="uk-form-row">
+        <input type="text"class="form-control"  formControlName="nameOFschool"  name="nameOfSchool" placeholder="">
+        <div *ngIf="schoolForm.controls['nameOFschool'].invalid && (schoolForm.controls['nameOFschool'].dirty || schoolForm.controls['nameOFschool'].touched)" class="alert alert-danger">
+          <div *ngIf="schoolForm.controls['nameOFschool'].errors.required">
+            Please enter school name is required.
         </div>
+    </div>
+  </div>
+</div>
+  <label for='province'>Province</label>
+<div class="form-group">
+    <div class="uk-form-row">
+      <input type="text" placeholder=""  formControlName="province" class="form-control" id="province"  name="province">
+      <div *ngIf="schoolForm.controls['province'].invalid && (schoolForm.controls['province'].dirty || schoolForm.controls['province'].touched)" class="alert alert-danger">
+        <div *ngIf="schoolForm.controls['province'].errors.required">
+         Province name is required.
       </div>
-        <label for='phone'>Phone Number</label>
-        <div class="form-group">
-          <div class="uk-form-row">
-            <input type="tel" placeholder="" formControlName="phoneNumber" class="form-control"  name='phoneNumber'>
-          </div>
-        </div>
-
-    <button type="button" (click)="onsubmit()" [disabled]="schoolForm.pristine || schoolForm.invalid" class="btn btn-success">Submit</button>
+      </div>
+    </div>
+</div>
+  <label for='email'>Email</label>
+<div class="form-group">
+  <div class="uk-form-row">
+    <input placeholder="" formControlName="email"  type="email" class="form-control" name="email">
+    <div *ngIf="schoolForm.controls['email'].invalid && (schoolForm.controls['email'].dirty || schoolForm.controls['email'].touched)" class="alert alert-danger">
+      <div *ngIf="schoolForm.controls['email'].errors.required">
+        Email  is required.
+    </div>
+    </div>
+  </div>
+</div>
+  <label for='phone'>Phone Number</label>
+  <div class="form-group">
+    <div class="uk-form-row">
+      <input type="tel" placeholder="" formControlName="phoneNumber" class="form-control"  name='phoneNumber'>
+      <div *ngIf="schoolForm.controls['phoneNumber'].invalid && (schoolForm.controls['phoneNumber'].dirty || schoolForm.controls['phoneNumber'].touched)" class="alert alert-danger">
+        <div *ngIf="schoolForm.controls['phoneNumber'].errors.required">
+         Telephone number is required.
+      </div>
+      </div>
+    </div>
+  </div>
+<button type="button" (click)="onsubmit()" [disabled]="schoolForm.pristine || schoolForm.invalid" class="uk-button uk-button-default">Submit</button>
 </form>

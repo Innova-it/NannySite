@@ -1,0 +1,18 @@
+.alert{
+  color:red;
+
+}
+
+.alert-danger{
+  color:red;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+input.ng-dirty.ng-invalid {
+  border: 1px solid red;
+
+
+}

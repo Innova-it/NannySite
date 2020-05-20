@@ -1,5 +1,5 @@
 export class School {
-  id: string;
+  $Key: string;
   nameOfSchool: string;
   province: string;
   phoneNumber: string;
