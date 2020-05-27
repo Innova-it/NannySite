@@ -36,4 +36,5 @@ export class SchoolsComponent implements OnInit {
     this.router.navigate (['register']);
   }
 
+
 }
