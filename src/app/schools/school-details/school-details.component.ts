@@ -45,6 +45,7 @@ export class SchoolDetailsComponent implements OnInit {
   deleteSchool() {
     this.schoolService
       .deleteSchool(this.school.$Key)
+
       .catch(err => console.log(err));
   }
 
