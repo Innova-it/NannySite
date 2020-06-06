@@ -2,6 +2,7 @@
 <br>
 <div  class="uk-container-center">
   <div *ngIf="school">
+
         <ul>
           <h2 class="uk-modal-title">{{school.nameOfSchool}}</h2>
           <!--<li><label>name of School:</label> {{school.nameOfSchool}}</li>-->
@@ -9,20 +10,23 @@
           <li><label>Email:</label> {{school.email}}</li>
           <li><label>phone number:</label> {{school.phoneNumber}} </li>
           <li><label>rating: coming soon</label></li>
-        </ul>
-       <span class="uk-button-primary" *ngIf='school.active' >Inactive</span>
-      <button class="uk-button uk-button-default uk-margin-small-right" *ngIf='!school.active' type="button"
-      uk-toggle="target: #modal-school">Active</button>
 
-      <span class="uk-button" (click)='deleteSchool(school.$Key)'>Delete</span>
+          <span class="uk-button-primary" *ngIf='school.active' >Inactive</span>
+          <button class="uk-button uk-button-default uk-margin-small-right" *ngIf='!school.active' type="button"
+          uk-toggle="target: #modal-school">Active</button>
+          <span class="uk-button" (click)='deleteSchool(school.$Key)'>Delete</span>
+        </ul>
+
+
+
 
           <!-- This is an anchor toggling the modal
         <a href="#modal-example" uk-toggle>Open</a>-->
 
         <!-- This is the modal -->
       <div id="modal-school" uk-modal>
-          <div class="uk-modal-dialog uk-modal-body" [formGroup]="schoolForm" >
-            <form (ngSubmit)="updateActive(school.$Key,$event)">
+          <div class="uk-modal-dialog uk-modal-body"  >
+            <form (ngSubmit)="updateActive(school,$event)">
               <h1 class="uk-modal-title">{{school.nameOfSchool}}</h1>
               <h2 class="uk-modal-title">Please update school information</h2>
           <label>Nanny School :</label>

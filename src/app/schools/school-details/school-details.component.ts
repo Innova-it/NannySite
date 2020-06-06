@@ -24,17 +24,14 @@ export class SchoolDetailsComponent implements OnInit {
   }
 
 // need to fix the update method to change certain data
-  updateActive(key: string, event: any) {
-     // this.school.$Key = key;
+  updateActive(school, event: any) {
+      const $Key: string = school.$Key;
       this.school.nameOfSchool = event.target.nameOfSchool.value ;
       this.school.province = event.target.province.value;
       this.school.email = event.target.email.value;
       this.school.phoneNumber = event.target.phoneNumber.value;
-
-      console.log(this.school);
-
       this.schoolService
-      .updateSchool(key, this.school)
+      .updateSchool($Key, this.school)
       .catch(err => console.log(err));
   }
 

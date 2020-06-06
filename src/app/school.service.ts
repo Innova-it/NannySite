@@ -26,9 +26,14 @@ export class SchoolService {
     this.schoolRef.push(school);
   }
 
-  // dont use it yet need to change all previous value
+
   updateSchool(key: string, school: School): Promise<void> {
-    return this.schoolRef.update(key, school);
+    return this.schoolRef.update(key,{
+      nameOfSchool : school.nameOfSchool ,
+      province : school.province,
+      email : school.email,
+      phoneNumber : school.phoneNumber
+    });
 
   }
 
