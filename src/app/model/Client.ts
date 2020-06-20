@@ -5,5 +5,6 @@ export class Client {
   emailAddress: string;
   telephoneNumber: string;
   active: boolean;
+  AddressInf: {streetNumber: string, streetName: string, province: string, area: number };
 
 }

@@ -5,5 +5,4 @@ export class School {
   phoneNumber: string;
   email: string;
   active: boolean;
-
 }
